@@ -1,7 +1,7 @@
 # MR. X — AI-Powered Document Intelligence Assistant
 
 <p align="center">
-  <img src="./screenshots/mr-x-dashboard.png" alt="MR. X Interface" width="100%">
+  <img src="https://raw.githubusercontent.com/harshu078600-tech/Database-projects/main/pincone_vector_database_proejct/Personal_ai_assitant_for_reading/screenshot/mr-x-dashboard.png" alt="MR. X Interface" width="100%">
 </p>
 
 <p align="center">
