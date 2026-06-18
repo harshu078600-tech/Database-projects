@@ -414,13 +414,7 @@ This project provided hands-on experience with:
 
 ---
 
-# Screenshots
 
-## Main Interface
-
-![MR. X Interface](./screenshots/mr-x-dashboard.png)
-
----
 
 # Repository
 
