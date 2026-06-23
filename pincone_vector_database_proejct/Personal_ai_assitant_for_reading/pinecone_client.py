@@ -2,7 +2,10 @@
 
 import os
 from pinecone import Pinecone
+from dotenv import load_dotenv
 
+
+load_dotenv()
 ASSISTANT_NAME = "mr-x"
 
 

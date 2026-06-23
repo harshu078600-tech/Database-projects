@@ -320,7 +320,7 @@ with st.sidebar:
     st.header("📄 Files in Knowledge Base")
     try:
         files = list_files(assistant)
-        
+
         if files:
             for f in files:
 
@@ -375,3 +375,6 @@ if prompt := st.chat_input("Ask something about your documents..."):
                 error_msg = f"Something went wrong: {e}"
                 st.error(error_msg)
                 st.session_state.messages.append({"role": "assistant", "content": error_msg})
+
+
+                  

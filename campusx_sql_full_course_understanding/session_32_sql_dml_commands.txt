@@ -1,0 +1,195 @@
+SELECT *
+FROM x.smartphones_cleaned_v6;
+
+
+-- execution order
+
+-- from -> join -> where ->group -> having ->select->distinct-> orderbx.smartphones_cleaned_v6->limit
+
+-- 1. find all Samsung phones
+select * from x.smartphones_cleaned_v6 where brand_name ="samsung";
+
+-- 2. find all phones with price > 500000
+
+select * FROM x.smartphones_cleaned_v6 WHERE price>50000;
+
+
+-- 1.find all phones in the price range of 10000 and 20000
+
+SELECT *
+FROM x.smartphones_cleaned_v6
+WHERE price BETWEEN 10000 and 20000;
+
+-- 2.find phones with rating > 80 and price < 25000
+
+SELECT *
+FROM x.smartphones_cleaned_v6
+WHERE rating>80 and price<25000;
+
+-- 3.find all Samsung phones with ram > 8 gb
+
+SELECT *
+FROM x.smartphones_cleaned_v6
+WHERE brand_name='samsung' and ram_capacitx.smartphones_cleaned_v6>8;
+
+-- 4.find all Samsung phones with snapdragon processor
+
+SELECT *
+FROM x.smartphones_cleaned_v6
+WHERE brand_name='samsung' and processor_brand='snapdragon';
+
+
+
+-- 1. find brands who sell phones with price > 50000
+
+SELECT DISTINCT(brand_name)
+FROM x.smartphones_cleaned_v6
+WHERE price>50000;
+
+-- IN and NOT IN
+
+SELECT *
+FROM x.smartphones_cleaned_v6
+WHERE processor_brand IN ('snapdragon','exx.smartphones_cleaned_v6nos');
+
+-- Update
+-- Delete
+-- 1.delete all phones price > 200000
+
+DELETE FROM x.smartphones_cleaned_v6
+WHERE price>200000;
+
+-- Tx.smartphones_cleaned_v6pes of functions in SQL
+-- Aggregate functions
+-- Min/Max
+
+-- 1. find the minimum and maximum price
+
+SELECT MIN(price)
+FROM x.smartphones_cleaned_v6;
+
+SELECT MAX(price)
+FROM x.smartphones_cleaned_v6;
+
+-- 2. find the price of the costliest Samsung phone
+
+SELECT MAX(price)
+FROM x.smartphones_cleaned_v6
+WHERE brand_name='samsung';
+
+SELECT *
+FROM x.smartphones_cleaned_v6
+WHERE brand_name='samsung' and price=110999;
+
+-- AVG
+-- 1. find avg rating of apple phones
+
+SELECT AVG(rating)
+FROM x.smartphones_cleaned_v6
+WHERE brand_name='apple';
+
+-- SUM
+-- COUNT
+-- 1. find the number of oneplus phones
+
+SELECT COUNT(*)
+FROM x.smartphones_cleaned_v6
+WHERE brand_name='oneplus';
+
+-- COUNT(DISTINCT)
+-- 1. find the number of brands available
+
+SELECT COUNT(DISTINCT brand_name)
+FROM x.smartphones_cleaned_v6;
+
+
+
+-- =====================================================
+-- AGGREGATE FUNCTIONS
+-- =====================================================
+
+-- STD
+-- 1. Find standard deviation of screen sizes
+
+SELECT STD(screen_size)
+FROM smartphones;
+
+
+-- VARIANCE
+-- 1. Find variance of Xiaomi phone prices
+
+SELECT VARIANCE(price)
+FROM smartphones
+WHERE brand_name = 'xiaomi';
+
+
+-- =====================================================
+-- SCALAR FUNCTIONS
+-- =====================================================
+
+-- ABS()
+-- Example:
+-- SELECT ABS(-100);
+
+-- ROUND()
+-- 1. Round the screen size to 1 decimal place
+
+SELECT ROUND(screen_size, 1)
+FROM smartphones;
+
+
+-- =====================================================
+-- CEIL / FLOOR
+-- =====================================================
+
+-- CEIL(4.2) = 5
+-- CEIL(4.8) = 5
+
+-- FLOOR(4.2) = 4
+-- FLOOR(4.8) = 4
+
+
+-- Floor the rating
+
+SELECT FLOOR(rating)
+FROM smartphones;
+
+
+-- Ceil the rating
+
+SELECT CEIL(rating)
+FROM smartphones;
+
+
+-- =====================================================
+-- PRACTICE QUESTIONS
+-- =====================================================
+
+-- 1. Find the average battery capacity and average
+-- primary rear camera resolution for smartphones
+-- with price >= 100000
+
+SELECT
+    ROUND(AVG(battery_capacity), 2) AS avg_battery_capacity,
+    ROUND(AVG(primary_camera_rear), 2) AS avg_primary_camera_rear
+FROM smartphones
+WHERE price >= 100000;
+
+
+-- 2. Find the average internal memory capacity of
+-- smartphones having refresh rate >= 120Hz and
+-- front camera resolution >= 20 MP
+
+SELECT
+    ROUND(AVG(internal_memory), 2) AS avg_internal_memory
+FROM smartphones
+WHERE primary_camera_front >= 20
+  AND refresh_rate >= 120;
+
+
+-- 3. Find the number of smartphones with 5G capability
+
+SELECT COUNT(*)
+FROM smartphones
+WHERE has_5g = TRUE;
+
